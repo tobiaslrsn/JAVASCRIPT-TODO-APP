@@ -1,0 +1,15 @@
+html {
+  scroll-behavior: smooth;
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@import "mixins";
+
+//Style Elements
+@import "./elements/header";
+@import "./elements/feed";
+@import "./elements/footer";
+@import "./elements/navigation";

@@ -31,3 +31,40 @@ ul li:nth-child(odd) {
   cursor: pointer;
 }
  */
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: lightblue;
+}
+
+.toDo_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.listSection {
+  background-color: blue;
+  margin: 100px;
+  padding: 0;
+  cursor: pointer;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 20pt;
+}
+
+.closeButton {
+  font-size: 25pt;
+  color: blueviolet;
+
+  .closeButton:hover {
+    font-size: 10pt;
+    cursor: pointer;
+  }
+}

@@ -4,44 +4,11 @@ html {
     margin: 0;
     padding: 0; }
 
-/* html {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-.listHeaderH1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.theList {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 40pt;
-  color: white;
-  background-color: antiquewhite;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
-ul li:nth-child(odd) {
-  width: 100%;
-  background: lightblue;
-}
-
-.close {
-  padding: 10px;
-  cursor: pointer;
-}
- */
 html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  color: lightblue;
+  color: white;
   background-color: black; }
 
 .toDo_container {
@@ -50,47 +17,45 @@ html {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: linear-gradient(152deg, rgba(58, 173, 180, 0.499037) 26%, rgba(253, 29, 207, 0.669905) 50%, #fcb045 100%);
   width: 90%;
   padding: 10px;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 20px;
-  border: 1px solid white; }
+  border: 1px solid white;
+  background: linear-gradient(152deg, rgba(58, 173, 180, 0.499037) 26%, rgba(253, 29, 207, 0.669905) 50%, #fcb045 100%); }
   .toDo_container h1 {
-    display: flex; }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; }
 
-.listSection {
+#startPageContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%; }
-
-.theList {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  font-size: 1.5rem;
-  width: 90%;
-  margin-top: 10px;
-  background: linear-gradient(152deg, rgba(58, 173, 180, 0.499037) 26%, rgba(253, 29, 207, 0.669905) 50%, #fcb045 100%);
-  color: white;
-  border: 1px solid white; }
-
-.closeButton {
-  display: flex;
-  justify-content: flex-end;
-  text-align: right;
-  align-items: center;
-  margin: 10px;
-  font-size: 1rem;
-  border: 5px solid white;
-  color: white;
-  cursor: pointer; }
-  .closeButton .closeButton:hover {
-    font-size: 10pt; }
+  margin-bottom: 102px; }
+  #startPageContainer .listSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; }
+    #startPageContainer .listSection .theList {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.5rem;
+      border: 1px solid white;
+      margin-top: 10px;
+      padding: 10px;
+      width: 90%;
+      background: linear-gradient(152deg, rgba(58, 173, 180, 0.499037) 26%, rgba(253, 29, 207, 0.669905) 50%, #fcb045 100%); }
+      #startPageContainer .listSection .theList .closeButton {
+        display: flex;
+        font-size: 1rem;
+        border: 3px solid white;
+        margin: 15px;
+        padding: 5px;
+        cursor: pointer; }

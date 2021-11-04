@@ -3,19 +3,20 @@ window.onload = function () {
   startPageContainer.id = "startPageContainer";
   document.body.appendChild(startPageContainer);
 
-  myToDoList();
-
   start();
+  myToDoList();
 
   //övning 2 - print to innerHTML, bygga på en lista här?
   function start() {
-    let calculateButton = document.getElementById("buttonToCalculate");
+    let calculateButton = document.getElementById("toDo_add-btn");
     calculateButton.addEventListener("click", handleCalculation);
   }
   function handleCalculation() {
-    numberTwo = document.getElementById("secondNumberInput").value;
-    result = document.getElementById("result").innerHTML = numberTwo;
-    document.getElementById("result").innerHTML;
+    let addInputToList = document.getElementById("toDo_inputField").value;
+    let personsAddedToDo = (document.getElementById("addedToDo").innerHTML =
+      addInputToList);
+    document.getElementById("addedToDo").innerHTML;
+    console.log(personsAddedToDo);
   }
 
   //hårdkodad lista
@@ -42,11 +43,11 @@ window.onload = function () {
     let removeFromList = document.getElementsByTagName("li");
 
     for (i = 0; i < removeFromList.length; i++) {
-      let span = document.createElement("span");
-      let txt = document.createTextNode("\u00D7");
-      span.className = "closeButton";
-      span.appendChild(txt);
-      removeFromList[i].appendChild(span);
+      let div = document.createElement("div");
+      let deleteToDoSymbol = document.createTextNode("\u00D7");
+      div.className = "closeButton";
+      div.appendChild(deleteToDoSymbol);
+      removeFromList[i].appendChild(div);
     }
 
     let closeButton = document.getElementsByClassName("closeButton");

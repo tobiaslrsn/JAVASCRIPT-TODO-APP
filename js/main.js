@@ -3,31 +3,45 @@ window.onload = function () {
   startPageContainer.id = "startPageContainer";
   document.body.appendChild(startPageContainer);
 
-  start();
+  handleCalculation();
   myToDoList();
 
   //övning 2 - print to innerHTML, bygga på en lista här?
-  function start() {
+  /*   function start() {
+    
+  } */
+  /* function handleCalculation() {
     let calculateButton = document.getElementById("toDo_add-btn");
     calculateButton.addEventListener("click", handleCalculation);
-  }
-  function handleCalculation() {
+
     let addInputToList = document.getElementById("toDo_inputField").value;
     let personsAddedToDo = (document.getElementById("addedToDo").innerHTML =
       addInputToList);
     document.getElementById("addedToDo").innerHTML;
     console.log(personsAddedToDo);
-  }
+  } */
 
+  function handleCalculation(myListOfTodos) {
+    let getInputValue = document.getElementById("toDo_inputField");
+    let getInputButton = document.getElementById("toDo_add-btn");
+
+    getInputButton.addEventListener("click", () => {
+      let myNewValue = getInputValue.value;
+      myListOfTodos.push(myNewValue);
+      myToDoList();
+      console.log(myListOfTodos);
+    });
+  }
   //hårdkodad lista
   function myToDoList() {
     let myListOfTodos = [
       "list_item1",
-      "list_item2",
-      "list_item3",
+      "lo",
+      "list_ifasgjdjs ddjjdd dddjjdjd djdjdj asgjajgjag agjsjgbdugsdg gsdgjsdj djdjtem3",
       "list_item4",
       "list_item5",
     ];
+    handleCalculation(myListOfTodos);
     //tryck ut hårdkodade listan
     let myToDoListUl = document.createElement("ul");
     myToDoListUl.className = "listSection";
@@ -44,9 +58,10 @@ window.onload = function () {
 
     for (i = 0; i < removeFromList.length; i++) {
       let div = document.createElement("div");
-      let deleteToDoSymbol = document.createTextNode("\u00D7");
+      let deleteSymbol = document.createElement("p");
+      deleteSymbol.innerHTML = "DONE";
       div.className = "closeButton";
-      div.appendChild(deleteToDoSymbol);
+      div.appendChild(deleteSymbol);
       removeFromList[i].appendChild(div);
     }
 
@@ -59,5 +74,7 @@ window.onload = function () {
         console.log("Task is done and gone.");
       };
     }
+
+    //Skriv om på Mitt sätt:
   }
 };

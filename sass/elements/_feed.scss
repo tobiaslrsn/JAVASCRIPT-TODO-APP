@@ -3,9 +3,48 @@ html {
   padding: 0;
   font-family: sans-serif;
   color: white;
-  background-color: black;
+  background-color: turquoise;
+}
+#toDo_add-btn {
+  display: flex;
+  background-color: transparent;
+  border: 2px solid #eee;
+  border-radius: 0.5rem;
+  color: #eee;
+  font-size: 1rem;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  z-index: 10;
+  margin: 5px;
 }
 
+#toDo_add-btn:hover {
+  color: #272829;
+}
+
+#toDo_add-btn::before {
+  background-color: #eee;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scaleX(0);
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  z-index: -1;
+}
+
+#toDo_add-btn:hover::before {
+  transform: scaleX(1);
+}
+
+#toDo_input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .toDo_container {
   display: flex;
   flex-direction: column;
@@ -17,7 +56,8 @@ html {
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 20px;
-  border: 1px solid white;
+  border: 2px solid #eee;
+  border-radius: 0.5rem;
   background: $primaryBackgroundColour;
 
   h1 {
@@ -30,6 +70,7 @@ html {
 
 #startPageContainer {
   display: flex;
+  flex-direction: column;
   margin-bottom: 102px;
 
   .listSection {
@@ -47,7 +88,8 @@ html {
       justify-content: space-between;
       align-items: center;
       font-size: 1.5rem;
-      border: 1px solid white;
+      border: 2px solid #eee;
+      border-radius: 0.5rem;
       margin-top: 10px;
       padding: 10px;
       width: 90%;
@@ -59,7 +101,7 @@ html {
         border: 3px solid white;
         margin: 15px;
         padding: 5px;
-        cursor: pointer;
+        cursor: pointer; //Lägg till dPALACE effekten på alla knappar överallt
       }
     }
   }

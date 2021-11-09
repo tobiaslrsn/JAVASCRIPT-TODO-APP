@@ -95,26 +95,15 @@ html {
       width: 90%;
       background: $primaryBackgroundColour;
 
-      /*   .closeButton {
-        display: flex;
-        font-size: 1rem;
-        border: 3px solid $primaryColor;
-        margin: 15px;
-        padding: 5px;
-        cursor: pointer; //Lägg till dPALACE effekten på alla knappar överallt
- */
-
       .closeButton {
         display: flex;
         font-size: 1rem;
         border: 3px solid $primaryColor;
         border-radius: 0.5rem;
-
         margin: 15px;
         padding: 5px;
         cursor: pointer;
         z-index: 10;
-
         position: relative;
         transition: all 0.2s ease-in-out;
       }
@@ -126,7 +115,6 @@ html {
       .closeButton::before {
         background-color: $primaryColor;
         content: "to-do";
-
         font-size: 1rem;
         text-align: center;
         height: 100%;

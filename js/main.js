@@ -29,17 +29,15 @@ function handleAddToList() {
   }
 
   theBeautifulToDoList();
-  console.log("Saker att bocka av:" + " " + addListItems); // ligger fortfarande kvar i console
-  // });
+  console.log(addListItems);
 }
 
-//hårdkodad lista ( LISTOR SKA ALLTID VARA I ROTEN AV FILEN.)
 let addListItems = [
-  "list_item_1",
+  /* "list_item_1",
   "list_item_2",
   "list_item_3",
   "list_item_4",
-  "list_item_5",
+  "list_item_5", */
 ];
 
 function theBeautifulToDoList() {
@@ -52,8 +50,6 @@ function theBeautifulToDoList() {
     let listItems = document.createElement("li");
     listItems.className = "theList";
     listItems.innerHTML = addListItems[i];
-    console.log("Saker att bocka av:" + " " + addListItems[i]);
-
     unorderedListContainer.appendChild(listItems);
 
     let removeToDo = document.createElement("div");
@@ -62,38 +58,21 @@ function theBeautifulToDoList() {
     removeToDo.className = "closeButton";
     removeToDo.appendChild(removeListItem);
 
-    removeToDo.addEventListener("click", () => {});
+    removeToDo.addEventListener("click", () => {
+      addListItems.splice(i, 1);
+      theBeautifulToDoList();
+      console.log(
+        `${
+          document.getElementById("toDo_inputField").value
+        } är avbockad, bra jobbat!`
+      );
+    });
 
     listItems.appendChild(removeToDo);
 
     document
       .getElementById("startPageContainer")
       .appendChild(unorderedListContainer);
-
-    removeToDo = document.getElementsByTagName("ul");
-    var r;
-    for (r = 0; r < removeToDo.length; r++) {
-      removeToDo[r].appendChild(listItems);
-    }
   }
-
-  let onClickRemove = document.getElementsByClassName("closeButton");
-  for (i = 0; i < onClickRemove.length; i++) {
-    onClickRemove[i].onclick = function () {
-      let removeToDo = this.parentElement;
-      removeToDo.remove();
-
-      //Nedan ändrade... allt till "Ångrat dig?" hur får jag att det bara blir den jag klickar på?
-
-      console.log(
-        `${
-          document.getElementById("toDo_inputField").value
-        } är avbockad, bra jobbat!`
-        /*  document.getElementById("toDo_inputField").value +
-          " " +
-          "är avbockad, bra jobbat!"
-      );*/
-      ); //upprepar bara tidigare i consol.log lös detta.
-    };
-  }
+  console.log("Saker att bocka av:" + " " + addListItems);
 }

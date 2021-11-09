@@ -1,16 +1,16 @@
 html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  color: white;
+  font-family: $primaryFontFamily;
+  color: $primaryColor;
   background-color: turquoise;
 }
 #toDo_add-btn {
   display: flex;
   background-color: transparent;
-  border: 2px solid #eee;
+  border: 2px solid $primaryColor;
   border-radius: 0.5rem;
-  color: #eee;
+  color: $primaryColor;
   font-size: 1rem;
   overflow: hidden;
   position: relative;
@@ -24,7 +24,7 @@ html {
 }
 
 #toDo_add-btn::before {
-  background-color: #eee;
+  background-color: $primaryColor;
   content: "";
   height: 100%;
   left: 0;
@@ -56,7 +56,7 @@ html {
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 20px;
-  border: 2px solid #eee;
+  border: 2px solid $primaryColor;
   border-radius: 0.5rem;
   background: $primaryBackgroundColour;
 
@@ -88,20 +88,59 @@ html {
       justify-content: space-between;
       align-items: center;
       font-size: 1.5rem;
-      border: 2px solid #eee;
+      border: 2px solid $primaryColor;
       border-radius: 0.5rem;
       margin-top: 10px;
       padding: 10px;
       width: 90%;
       background: $primaryBackgroundColour;
 
-      .closeButton {
+      /*   .closeButton {
         display: flex;
         font-size: 1rem;
-        border: 3px solid white;
+        border: 3px solid $primaryColor;
         margin: 15px;
         padding: 5px;
         cursor: pointer; //Lägg till dPALACE effekten på alla knappar överallt
+ */
+
+      .closeButton {
+        display: flex;
+        font-size: 1rem;
+        border: 3px solid $primaryColor;
+        border-radius: 0.5rem;
+
+        margin: 15px;
+        padding: 5px;
+        cursor: pointer;
+        z-index: 10;
+
+        position: relative;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .closeButton:hover {
+        color: #272829;
+      }
+
+      .closeButton::before {
+        background-color: $primaryColor;
+        content: "to-do";
+
+        font-size: 1rem;
+        text-align: center;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: scaleX(0);
+        transition: all 0.2s ease-in-out;
+        width: 100%;
+        z-index: -1;
+      }
+
+      .closeButton:hover::before {
+        transform: scaleX(1);
       }
     }
   }

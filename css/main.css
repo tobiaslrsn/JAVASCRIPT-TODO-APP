@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   scroll-behavior: smooth; }
   html body {
@@ -14,9 +15,9 @@ html {
 #toDo_add-btn {
   display: flex;
   background-color: transparent;
-  border: 2px solid #eee;
+  border: 2px solid white;
   border-radius: 0.5rem;
-  color: #eee;
+  color: white;
   font-size: 1rem;
   overflow: hidden;
   position: relative;
@@ -28,7 +29,7 @@ html {
   color: #272829; }
 
 #toDo_add-btn::before {
-  background-color: #eee;
+  background-color: white;
   content: "";
   height: 100%;
   left: 0;
@@ -58,7 +59,7 @@ html {
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 20px;
-  border: 2px solid #eee;
+  border: 2px solid white;
   border-radius: 0.5rem;
   background: linear-gradient(152deg, rgba(58, 173, 180, 0.499037) 26%, rgba(253, 29, 207, 0.669905) 50%, #fcb045 100%); }
   .toDo_container h1 {
@@ -85,16 +86,45 @@ html {
       justify-content: space-between;
       align-items: center;
       font-size: 1.5rem;
-      border: 2px solid #eee;
+      border: 2px solid white;
       border-radius: 0.5rem;
       margin-top: 10px;
       padding: 10px;
       width: 90%;
-      background: linear-gradient(152deg, rgba(58, 173, 180, 0.499037) 26%, rgba(253, 29, 207, 0.669905) 50%, #fcb045 100%); }
+      background: linear-gradient(152deg, rgba(58, 173, 180, 0.499037) 26%, rgba(253, 29, 207, 0.669905) 50%, #fcb045 100%);
+      /*   .closeButton {
+        display: flex;
+        font-size: 1rem;
+        border: 3px solid $primaryColor;
+        margin: 15px;
+        padding: 5px;
+        cursor: pointer; //Lägg till dPALACE effekten på alla knappar överallt
+ */ }
       #startPageContainer .listSection .theList .closeButton {
         display: flex;
         font-size: 1rem;
         border: 3px solid white;
+        border-radius: 0.5rem;
         margin: 15px;
         padding: 5px;
-        cursor: pointer; }
+        cursor: pointer;
+        z-index: 10;
+        position: relative;
+        transition: all 0.2s ease-in-out; }
+      #startPageContainer .listSection .theList .closeButton:hover {
+        color: #272829; }
+      #startPageContainer .listSection .theList .closeButton::before {
+        background-color: white;
+        content: "to-do";
+        font-size: 1rem;
+        text-align: center;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: scaleX(0);
+        transition: all 0.2s ease-in-out;
+        width: 100%;
+        z-index: -1; }
+      #startPageContainer .listSection .theList .closeButton:hover::before {
+        transform: scaleX(1); }

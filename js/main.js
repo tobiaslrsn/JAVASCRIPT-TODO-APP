@@ -1,8 +1,12 @@
 /*
-Frågor:
-console.log vid borttagande av todo skriver ut den senaste inskrivna.
+Fråga och fixa:
+console.log vid borttagande av todo skriver ut den senaste inskrivna. 
+Lägga till todo anger undefined.
+bocka av todo - Den ändrar dem hårdkordade, men inte undefined när man ska lägga till?
+Göra så att "stryk över" samtidigt ändras till "ångra" och tillbaka. if/else?
 
-varför är class/constructor så bra? för local storage?
+Styling-fixes
+
 */
 //ANDRA ( CLASS OBJECTS)
 class Todo {
@@ -17,9 +21,9 @@ let todo2 = new Todo("Laga mat");
 let todos = [todo1, todo2];
 
 window.onload = () => {
-  let toDoListContainer = document.createElement("div");
-  toDoListContainer.id = "startPageContainer";
-  document.body.appendChild(toDoListContainer);
+  let todoListContainer = document.createElement("div");
+  todoListContainer.id = "startPageContainer";
+  document.body.appendChild(todoListContainer);
 
   theBeautifulToDoList();
 
@@ -55,7 +59,7 @@ function theBeautifulToDoList() {
     //Tar bort från skärmen nedan (saker behöver döpas om)
 
     let removeTToDo = document.createElement("div");
-    removeTToDo.className = "closeButton";
+    removeTToDo.className = "doneButton";
 
     let removeTListItem = document.createElement("p");
     removeTListItem.innerHTML = "STRYK ÖVER";
@@ -115,9 +119,9 @@ function theBeautifulToDoList() {
 
 //FÖRSTA ( UL LI )
 /* window.onload = () => {
-  let toDoListContainer = document.createElement("div");
-  toDoListContainer.id = "startPageContainer";
-  document.body.appendChild(toDoListContainer);
+  let todoListContainer = document.createElement("div");
+  todoListContainer.id = "startPageContainer";
+  document.body.appendChild(todoListContainer);
 
   theBeautifulToDoList();
 

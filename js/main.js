@@ -1,9 +1,120 @@
 /*
 Frågor:
+console.log vid borttagande av todo skriver ut den senaste inskrivna.
+
+varför är class/constructor så bra? för local storage?
 */
+//ANDRA ( CLASS OBJECTS)
+class Todo {
+  constructor(todoItem) {
+    this.listItem = todoItem;
+    this.done = false;
+  }
+}
+
+let todo1 = new Todo("Handla");
+let todo2 = new Todo("Laga mat");
+let todos = [todo1, todo2];
 
 window.onload = () => {
-  // varför funkar detta istället för function? vad ska användas? vad är bäst?
+  let toDoListContainer = document.createElement("div");
+  toDoListContainer.id = "startPageContainer";
+  document.body.appendChild(toDoListContainer);
+
+  theBeautifulToDoList();
+
+  let addInputValueToListButton = document.getElementById("toDo_add-btn");
+  addInputValueToListButton.addEventListener("click", handleAddToList);
+};
+
+function handleAddToList() {
+  let getInputValue = document.getElementById("toDo_inputField");
+  let myNewValue = getInputValue.value;
+  todos.push(myNewValue);
+
+  if (myNewValue === "") todos.push(myNewValue);
+  {
+  }
+  theBeautifulToDoList();
+  console.log(todos);
+}
+
+function theBeautifulToDoList() {
+  let unorderedListContainer = document.createElement("ul");
+  unorderedListContainer.className = "listSection";
+  document.getElementById("startPageContainer").innerHTML = "";
+
+  for (let i = 0; i < todos.length; i++) {
+    let listItems = document.createElement("li");
+    let listItemParagraph = document.createElement("p");
+
+    listItems.className = "theList";
+    listItemParagraph.className = "listParagraph";
+    listItemParagraph.innerHTML = todos[i].listItem;
+    //__________________________________________________________
+    //Tar bort från skärmen nedan (saker behöver döpas om)
+
+    let removeTToDo = document.createElement("div");
+    removeTToDo.className = "closeButton";
+
+    let removeTListItem = document.createElement("p");
+    removeTListItem.innerHTML = "STRYK ÖVER";
+
+    unorderedListContainer.appendChild(listItems);
+    removeTToDo.appendChild(removeTListItem);
+    listItems.appendChild(listItemParagraph);
+
+    removeTToDo.addEventListener("click", () => {
+      todos[i].done = true;
+
+      theBeautifulToDoList();
+
+      console.log(
+        `${
+          document.getElementById("toDo_inputField").value
+        } är avbockad, bra jobbat!`
+      );
+    });
+
+    listItems.appendChild(removeTToDo);
+    document
+      .getElementById("startPageContainer")
+      .appendChild(unorderedListContainer);
+
+    //Markerar li som done i domen och stryker över ALLT!?
+    //Fixa så den bara stryker över texten samt går att ändra tillbaka, göra paragraph?
+    if (todos[i].done === true) {
+      listItems.className = "theList done";
+    }
+    let overlineTodo = document.createElement("div");
+    overlineTodo.className = "closeButton";
+    let overlin = document.createElement("p");
+    overlin.innerHTML = "TA BORT";
+
+    unorderedListContainer.appendChild(listItems);
+    overlineTodo.appendChild(overlin);
+
+    overlineTodo.addEventListener("click", () => {
+      todos.splice(i, 1);
+
+      theBeautifulToDoList();
+
+      console.log(
+        `${
+          document.getElementById("toDo_inputField").value
+        } är borttagen, bra jobbat!`
+      );
+    });
+    listItems.appendChild(overlineTodo);
+    document
+      .getElementById("startPageContainer")
+      .appendChild(unorderedListContainer);
+  }
+  console.log("Saker att bocka av:" + " " + todos);
+}
+
+//FÖRSTA ( UL LI )
+/* window.onload = () => {
   let toDoListContainer = document.createElement("div");
   toDoListContainer.id = "startPageContainer";
   document.body.appendChild(toDoListContainer);
@@ -16,29 +127,22 @@ window.onload = () => {
   let addInputValueToList = document.getElementById("toDo_inputField").value;
   let whatsBeenAddedToList = document.getElementById("toDo_inputField"); // Hitta element för att SEN ändra elementet
   whatsBeenAddedToList.innerHTML = addInputValueToList;
-
-  document.getElementById("toDo_inputField");
 };
 
 function handleAddToList() {
   let getInputValue = document.getElementById("toDo_inputField"); //hitta input
   let myNewValue = getInputValue.value; //hitta texten i input
   addListItems.push(myNewValue); //lägg till
+
   if (myNewValue === "") addListItems.pop(myNewValue);
   {
   }
-
   theBeautifulToDoList();
   console.log(addListItems);
 }
 
-let addListItems = [
-  /* "list_item_1",
-  "list_item_2",
-  "list_item_3",
-  "list_item_4",
-  "list_item_5", */
-];
+//hårdkodad lista ( LISTOR SKA ALLTID VARA I ROTEN AV FILEN.)
+let addListItems = ["list_item_1", "list_item_2", "list_item_3"];
 
 function theBeautifulToDoList() {
   //tryck ut hårdkodade listan
@@ -50,17 +154,20 @@ function theBeautifulToDoList() {
     let listItems = document.createElement("li");
     listItems.className = "theList";
     listItems.innerHTML = addListItems[i];
+
+    let overlineTodo = document.createElement("div");
+    overlineTodo.className = "closeButton";
+
+    let overlin = document.createElement("p");
+    overlin.innerHTML = "KLAR";
+
     unorderedListContainer.appendChild(listItems);
+    overlineTodo.appendChild(overlin);
 
-    let removeToDo = document.createElement("div");
-    let removeListItem = document.createElement("p");
-    removeListItem.innerHTML = "KLAR";
-    removeToDo.className = "closeButton";
-    removeToDo.appendChild(removeListItem);
-
-    removeToDo.addEventListener("click", () => {
+    overlineTodo.addEventListener("click", () => {
       addListItems.splice(i, 1);
       theBeautifulToDoList();
+
       console.log(
         `${
           document.getElementById("toDo_inputField").value
@@ -68,11 +175,11 @@ function theBeautifulToDoList() {
       );
     });
 
-    listItems.appendChild(removeToDo);
+    listItems.appendChild(overlineTodo);
 
     document
       .getElementById("startPageContainer")
       .appendChild(unorderedListContainer);
   }
   console.log("Saker att bocka av:" + " " + addListItems);
-}
+} */

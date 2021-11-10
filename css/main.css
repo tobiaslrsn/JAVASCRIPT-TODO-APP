@@ -9,7 +9,13 @@ html {
   padding: 0;
   font-family: sans-serif;
   color: white;
-  background-color: turquoise; }
+  background-color: rgba(64, 224, 208, 0.253); }
+
+.listParagraph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: line-through; }
 
 #toDo_add-btn {
   display: flex;
@@ -22,7 +28,8 @@ html {
   position: relative;
   transition: all 0.2s ease-in-out;
   z-index: 10;
-  margin: 5px; }
+  margin: 5px;
+  cursor: pointer; }
 
 #toDo_add-btn:hover {
   color: #272829; }
@@ -60,7 +67,7 @@ html {
   margin-bottom: 20px;
   border: 2px solid white;
   border-radius: 0.5rem;
-  background: linear-gradient(152deg, rgba(58, 173, 180, 0.499037) 26%, rgba(253, 29, 207, 0.669905) 50%, #fcb045 100%); }
+  background: linear-gradient(152deg, rgba(138, 219, 243, 0.562) 26%, rgba(19, 170, 64, 0.26) 50%, #ffc423 100%); }
   .toDo_container h1 {
     display: flex;
     justify-content: center;
@@ -74,7 +81,7 @@ html {
   #startPageContainer .listSection {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -90,23 +97,28 @@ html {
       margin-top: 10px;
       padding: 10px;
       width: 90%;
-      background: linear-gradient(152deg, rgba(58, 173, 180, 0.499037) 26%, rgba(253, 29, 207, 0.669905) 50%, #fcb045 100%); }
+      background: linear-gradient(152deg, rgba(138, 219, 243, 0.562) 26%, rgba(19, 170, 64, 0.26) 50%, #ffc423 100%); }
       #startPageContainer .listSection .theList .closeButton {
         display: flex;
         font-size: 1rem;
         border: 3px solid white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         border-radius: 0.5rem;
         margin: 15px;
         padding: 5px;
         cursor: pointer;
         z-index: 10;
         position: relative;
-        transition: all 0.2s ease-in-out; }
+        transition: all 0.2s ease-in-out;
+        width: 3rem;
+        height: 50px; }
       #startPageContainer .listSection .theList .closeButton:hover {
-        color: #272829; }
+        color: gray; }
       #startPageContainer .listSection .theList .closeButton::before {
         background-color: white;
-        content: "to-do";
+        content: "";
         font-size: 1rem;
         text-align: center;
         height: 100%;

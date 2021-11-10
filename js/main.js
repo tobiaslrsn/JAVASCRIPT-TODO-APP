@@ -11,9 +11,23 @@ class Todo {
   }
 }
 
-let todo1 = new Todo("Handla");
-let todo2 = new Todo("Laga mat");
-let todos = [todo1, todo2];
+let todo1 = new Todo(
+  "Skapa en hårdkodad lista med punkter att göra (hitta på egna punkter)."
+);
+let todo2 = new Todo(
+  "Presentera denna på skärmen, helst med lite kontroll. Detta betyder i en html-struktur t.ex. i en ul/li-lista."
+);
+let todo3 = new Todo(
+  "Implementera klickhändelse för att hantera borttagandet av en todo. "
+);
+let todo4 = new Todo(
+  "Todo tas bort från skärmen och markeras som klar i listan."
+);
+let todo5 = new Todo(
+  "Implementera ett valfritt grafiskt ramverk till din todolista,t.ex. bootstrap, flexeller liknande."
+);
+
+let todos = [todo1, todo2, todo3, todo4, todo5];
 
 window.onload = () => {
   let todoListContainer = document.createElement("div");

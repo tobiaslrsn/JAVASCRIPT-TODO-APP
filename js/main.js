@@ -25,8 +25,15 @@ let todo4 = new Todo(
 let todo5 = new Todo(
   "Implementera ett valfritt grafiskt ramverk till din todolista,t.ex. bootstrap, flexeller liknande."
 );
+let todo6 = new Todo(
+  "Kunna visa även klara händelser och klicka tillbaka den så att de blir oklara igen."
+);
+let todo7 = new Todo(
+  "Skapa ett formulär som tillåter att en användare skapar nya todos efterhand."
+);
+let todo8 = new Todo("Kunna sortera ordningen på dina todos.");
 
-let todos = [todo1, todo2, todo3, todo4, todo5];
+let todos = [todo1, todo2, todo3, todo4, todo5, todo6, todo7, todo8];
 
 window.onload = () => {
   let todoListContainer = document.createElement("div");

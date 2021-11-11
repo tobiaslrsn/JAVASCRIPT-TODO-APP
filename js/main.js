@@ -10,7 +10,6 @@ class Todo {
     this.done = false;
   }
 }
-
 let todo1 = new Todo(
   "Skapa en hårdkodad lista med punkter att göra (hitta på egna punkter)."
 );
@@ -63,8 +62,6 @@ function theBeautifulToDoList() {
     listItems.className = "theList";
     listItemParagraph.className = "listParagraph";
     listItemParagraph.innerHTML = todos[i].listItem;
-    //__________________________________________________________
-    //Tar bort från skärmen nedan (saker behöver döpas om)
 
     let checkTodo = document.createElement("div");
     checkTodo.className = "doneButton";

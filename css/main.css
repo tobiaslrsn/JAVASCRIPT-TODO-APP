@@ -115,7 +115,8 @@ html {
         position: relative;
         transition: all 0.2s ease-in-out;
         width: 3rem;
-        height: 50px; }
+        height: 50px;
+        width: 100px; }
       #startPageContainer .listSection .theList .closeButton {
         display: flex;
         font-size: 1rem;

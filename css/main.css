@@ -45,10 +45,13 @@ html {
 #sort-abc-button:hover::before {
   transform: scaleX(1); }
 
+form {
+  display: flex; }
+
 #toDo_input-container {
   display: flex;
-  flex-direction: row;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
 
 .toDo_container {
   display: flex;

@@ -43,12 +43,16 @@ window.onload = () => {
 };
 
 function handleAddToList() {
+  event.preventDefault();
   let getInputValue = document.getElementById("toDo_inputField");
-  let myNewValue = getInputValue.value;
-  let userTodo = new Todo(myNewValue);
-  todos.push(userTodo);
 
-  myTodoList();
+  if (getInputValue.value.length == 0) {
+  } else {
+    let myNewValue = getInputValue.value;
+    let userTodo = new Todo(myNewValue);
+    todos.push(userTodo);
+    myTodoList();
+  }
 }
 
 function myTodoList() {

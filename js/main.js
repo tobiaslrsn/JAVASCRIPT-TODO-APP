@@ -49,7 +49,6 @@ function handleAddToList() {
   todos.push(userTodo);
 
   myTodoList();
-  console.log(myNewValue + " är tillagd i todo-listan");
 }
 
 function myTodoList() {
@@ -78,9 +77,6 @@ function myTodoList() {
     checkTodo.addEventListener("click", () => {
       todos[i].done = !todos[i].done;
 
-      console.log(
-        document.getElementById("startPageContainer").userTodo + " är avbockad"
-      );
       myTodoList();
     });
 
@@ -105,11 +101,6 @@ function myTodoList() {
       todos.splice(i, 1);
 
       myTodoList();
-      console.log(
-        `${
-          document.getElementById("startPageContainer").myNewValue
-        } är borttagen, bra jobbat!`
-      );
     });
 
     listItems.appendChild(removeTodo);

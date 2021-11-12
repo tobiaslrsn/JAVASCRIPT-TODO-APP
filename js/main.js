@@ -107,7 +107,7 @@ function myTodoList() {
       myTodoList();
       console.log(
         `${
-          document.getElementById("startPageContainer").myNewValue
+          document.getElementById("startPageContainer").userTodo
         } är borttagen, bra jobbat!`
       );
     });

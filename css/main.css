@@ -1,10 +1,4 @@
 html {
-  scroll-behavior: smooth; }
-  html body {
-    margin: 0;
-    padding: 0; }
-
-html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -15,7 +9,8 @@ html {
   text-decoration: line-through;
   color: rgba(82, 80, 77, 0.226); }
 
-#toDo_add-btn {
+#toDo_add-btn,
+#sort-abc-button {
   display: flex;
   background-color: transparent;
   border: 2px solid white;
@@ -29,10 +24,12 @@ html {
   margin: 5px;
   cursor: pointer; }
 
-#toDo_add-btn:hover {
+#toDo_add-btn:hover,
+#sort-abc-button:hover {
   color: #272829; }
 
-#toDo_add-btn::before {
+#toDo_add-btn::before,
+#sort-abc-button::before {
   background-color: white;
   content: "";
   height: 100%;
@@ -44,7 +41,8 @@ html {
   width: 100%;
   z-index: -1; }
 
-#toDo_add-btn:hover::before {
+#toDo_add-btn:hover::before,
+#sort-abc-button:hover::before {
   transform: scaleX(1); }
 
 #toDo_input-container {
@@ -61,7 +59,7 @@ html {
   width: 90%;
   padding: 10px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 40px;
   margin-bottom: 20px;
   border: 2px solid white;
   border-radius: 0.5rem;
@@ -76,7 +74,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-bottom: 102px; }
+  margin-bottom: 100px; }
   #startPageContainer .listSection {
     display: flex;
     flex-direction: column;
@@ -86,7 +84,7 @@ html {
     padding: 0;
     width: 100%;
     height: 100%; }
-    #startPageContainer .listSection .theList {
+    #startPageContainer .listSection .todo-task {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
@@ -97,7 +95,7 @@ html {
       padding: 10px;
       width: 90%;
       background: linear-gradient(152deg, rgba(138, 219, 243, 0.562) 26%, rgba(19, 170, 64, 0.26) 50%, #ffc423 100%); }
-      #startPageContainer .listSection .theList .listParagraph {
+      #startPageContainer .listSection .todo-task .listParagraph {
         font-size: 1rem;
         width: 70%;
         height: 100%;
@@ -105,7 +103,7 @@ html {
         margin-right: 20px;
         background-color: rgba(64, 224, 208, 0.205);
         border-radius: 0.4rem; }
-      #startPageContainer .listSection .theList .doneButton {
+      #startPageContainer .listSection .todo-task .doneButton {
         display: flex;
         font-size: 2rem;
         border: 3px solid white;
@@ -120,7 +118,7 @@ html {
         transition: all 0.2s ease-in-out;
         height: 2rem;
         width: 2rem; }
-      #startPageContainer .listSection .theList .closeButton {
+      #startPageContainer .listSection .todo-task .closeButton {
         display: flex;
         font-size: 2rem;
         border: 3px solid white;
@@ -135,10 +133,10 @@ html {
         transition: all 0.2s ease-in-out;
         height: 2rem;
         width: 2rem; }
-      #startPageContainer .listSection .theList .closeButton:hover,
-      #startPageContainer .listSection .theList .doneButton:hover {
+      #startPageContainer .listSection .todo-task .closeButton:hover,
+      #startPageContainer .listSection .todo-task .doneButton:hover {
         color: white; }
-      #startPageContainer .listSection .theList .closeButton::before {
+      #startPageContainer .listSection .todo-task .closeButton::before {
         background-color: rgba(207, 78, 78, 0.63);
         border-radius: 0.4rem;
         content: "";
@@ -152,7 +150,7 @@ html {
         transition: all 0.2s ease-in-out;
         width: 100%;
         z-index: -1; }
-      #startPageContainer .listSection .theList .doneButton::before {
+      #startPageContainer .listSection .todo-task .doneButton::before {
         background-color: rgba(93, 216, 93, 0.473);
         border-radius: 0.4rem;
         content: "";
@@ -166,6 +164,6 @@ html {
         transition: all 0.2s ease-in-out;
         width: 100%;
         z-index: -1; }
-      #startPageContainer .listSection .theList .closeButton:hover::before,
-      #startPageContainer .listSection .theList .doneButton:hover::before {
+      #startPageContainer .listSection .todo-task .closeButton:hover::before,
+      #startPageContainer .listSection .todo-task .doneButton:hover::before {
         transform: scaleX(1); }

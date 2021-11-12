@@ -1,15 +1,10 @@
-/*
-Fråga och fixa:
-console.log vid borttagande av todo skriver ut den senaste inskrivna. 
-Styling-fixes:
-todo och knappar ska ligga snyggare.
-*/
 class Todo {
   constructor(todoItem) {
     this.listItem = todoItem;
     this.done = false;
   }
 }
+
 let todo1 = new Todo(
   "Skapa en hårdkodad lista med punkter att göra (hitta på egna punkter)."
 );
@@ -40,24 +35,24 @@ window.onload = () => {
   todoListContainer.id = "startPageContainer";
   document.body.appendChild(todoListContainer);
 
-  theBeautifulToDoList();
-
   let addInputValueToListButton = document.getElementById("toDo_add-btn");
   addInputValueToListButton.addEventListener("click", handleAddToList);
+
+  sortAbc();
+  myTodoList();
 };
 
 function handleAddToList() {
   let getInputValue = document.getElementById("toDo_inputField");
   let myNewValue = getInputValue.value;
   let userTodo = new Todo(myNewValue);
-
   todos.push(userTodo);
 
-  theBeautifulToDoList();
-  console.log(todos);
+  myTodoList();
+  console.log(`${myNewValue} är tillagd i todo-listan`);
 }
 
-function theBeautifulToDoList() {
+function myTodoList() {
   let unorderedListContainer = document.createElement("ul");
   unorderedListContainer.className = "listSection";
   document.getElementById("startPageContainer").innerHTML = "";
@@ -66,7 +61,7 @@ function theBeautifulToDoList() {
     let listItems = document.createElement("li");
     let listItemParagraph = document.createElement("p");
 
-    listItems.className = "theList";
+    listItems.className = "todo-task";
     listItemParagraph.className = "listParagraph";
     listItemParagraph.innerHTML = todos[i].listItem;
 
@@ -81,9 +76,13 @@ function theBeautifulToDoList() {
     listItems.appendChild(listItemParagraph);
 
     checkTodo.addEventListener("click", () => {
-      todos[i].done = !todos[i].done; //true/false clickevent
+      todos[i].done = !todos[i].done;
 
-      theBeautifulToDoList();
+      console.log(
+        `${document.getElementById("startPageContainer").userTodo} är avbockad`
+      );
+
+      myTodoList();
     });
 
     listItems.appendChild(checkTodo);
@@ -92,7 +91,7 @@ function theBeautifulToDoList() {
       .appendChild(unorderedListContainer);
 
     if (todos[i].done === true) {
-      listItems.className = "theList done";
+      listItems.className = "todo-task done";
     }
     let removeTodo = document.createElement("div");
     removeTodo.className = "closeButton";
@@ -105,11 +104,10 @@ function theBeautifulToDoList() {
     removeTodo.addEventListener("click", () => {
       todos.splice(i, 1);
 
-      theBeautifulToDoList();
-
+      myTodoList();
       console.log(
         `${
-          document.getElementById("toDo_inputField").value
+          document.getElementById("startPageContainer").myNewValue
         } är borttagen, bra jobbat!`
       );
     });
@@ -118,5 +116,17 @@ function theBeautifulToDoList() {
       .getElementById("startPageContainer")
       .appendChild(unorderedListContainer);
   }
-  console.log("Saker att bocka av:" + " " + todos);
+}
+function sortAbc() {
+  let sortAbcButton = document.getElementById("sort-abc-button");
+  sortAbcButton.addEventListener("click", () => {
+    todos.sort((a, b) => {
+      if (a.listItem.toLowerCase() > b.listItem.toLowerCase()) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    myTodoList();
+  });
 }

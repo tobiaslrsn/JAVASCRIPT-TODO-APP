@@ -1,6 +1,3 @@
-/*
-skriva console.log(`Saker att bocka av: ${todos}`); eller   console.log("Saker att bocka av:" + " " + todos);
-*/
 class Todo {
   constructor(todoItem) {
     this.listItem = todoItem;
@@ -72,19 +69,18 @@ function myTodoList() {
     checkTodo.className = "doneButton";
 
     let checkedItem = document.createElement("p");
-    checkedItem.innerHTML = "✓"; // BOCKA AV OCH PÅ
+    checkedItem.innerHTML = "✓";
 
     unorderedListContainer.appendChild(listItems);
     checkTodo.appendChild(checkedItem);
     listItems.appendChild(listItemParagraph);
 
     checkTodo.addEventListener("click", () => {
-      todos[i].done = !todos[i].done; //true/false clickevent
+      todos[i].done = !todos[i].done;
 
       console.log(
         document.getElementById("startPageContainer").userTodo + " är avbockad"
       );
-
       myTodoList();
     });
 
@@ -96,6 +92,7 @@ function myTodoList() {
     if (todos[i].done === true) {
       listItems.className = "todo-task done";
     }
+
     let removeTodo = document.createElement("div");
     removeTodo.className = "closeButton";
     let removedItem = document.createElement("p");
@@ -114,12 +111,14 @@ function myTodoList() {
         } är borttagen, bra jobbat!`
       );
     });
+
     listItems.appendChild(removeTodo);
     document
       .getElementById("startPageContainer")
       .appendChild(unorderedListContainer);
   }
 }
+
 function sortAbc() {
   let sortAbcButton = document.getElementById("sort-abc-button");
   sortAbcButton.addEventListener("click", () => {
@@ -130,6 +129,6 @@ function sortAbc() {
         return -1;
       }
     });
+    myTodoList();
   });
-  myTodoList();
 }

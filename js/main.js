@@ -1,3 +1,6 @@
+/*
+skriva console.log(`Saker att bocka av: ${todos}`); eller   console.log("Saker att bocka av:" + " " + todos);
+*/
 class Todo {
   constructor(todoItem) {
     this.listItem = todoItem;
@@ -49,7 +52,7 @@ function handleAddToList() {
   todos.push(userTodo);
 
   myTodoList();
-  console.log(`${myNewValue} är tillagd i todo-listan`);
+  console.log(myNewValue + " är tillagd i todo-listan");
 }
 
 function myTodoList() {
@@ -76,10 +79,10 @@ function myTodoList() {
     listItems.appendChild(listItemParagraph);
 
     checkTodo.addEventListener("click", () => {
-      todos[i].done = !todos[i].done;
+      todos[i].done = !todos[i].done; //true/false clickevent
 
       console.log(
-        `${document.getElementById("startPageContainer").userTodo} är avbockad`
+        document.getElementById("startPageContainer").userTodo + " är avbockad"
       );
 
       myTodoList();
@@ -107,7 +110,7 @@ function myTodoList() {
       myTodoList();
       console.log(
         `${
-          document.getElementById("startPageContainer").userTodo
+          document.getElementById("startPageContainer").myNewValue
         } är borttagen, bra jobbat!`
       );
     });
@@ -127,6 +130,6 @@ function sortAbc() {
         return -1;
       }
     });
-    myTodoList();
   });
+  myTodoList();
 }
